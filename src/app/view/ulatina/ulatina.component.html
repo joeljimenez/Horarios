@@ -1,0 +1,67 @@
+<div class="container animated fadeIn formu hola">
+
+   <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <label class="select">Sede</label>
+                        <select class="form-control" [(ngModel)]="sede" (change)="select_sede()">
+                            <option value="0">-- Seleccione --</option>
+                            <option value="001">Sede Central</option>
+                            <option value="002">Medicina</option>
+                            <option value="003">Santiago</option>
+                            <option value="004">Chitré</option>
+                            <option value="005">David</option>
+                            <option value="007">Penonomé</option>
+
+                        </select>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <label class="select">Año</label>
+                        <select class="form-control" [(ngModel)]="anio">
+                            <option value="0">-- Seleccione --</option>
+                            <option [value]="anno">{{anno}}</option>
+                            <option [value]="anno+1">{{anno+1}}</option>
+                            <option [value]="anno+2">{{anno+2}}</option>
+                            <option [value]="anno+3">{{anno+3}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <label class="select">Periodo</label>
+                        <select class="form-control" [(ngModel)]="periodo" >
+                            <option value="0">-- Seleccione --</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-4-col-sm-12">
+                        <label class="select">Facultad</label>
+                        <select class="form-control" [(ngModel)]="facultad" (change)="select_carrera()">
+                            <option value="0">-- Seleccione --</option>
+                            <option *ngFor="let a of facultades" [value]="a.id">{{a.nombre | corrector}}</option>
+
+                        </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4-col-sm-12">
+                        <label class="select">Carrera</label>
+                        <select class="form-control" [(ngModel)]="ind">
+                            <option value="0">-- Seleccione --</option>
+                            <option *ngFor="let a of carreras" [value]="a.ind">{{a.nombre | corrector}}</option>
+                        </select>
+                    </div>
+
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-outline-light" (click)=' open_plan()'> Consultar <i class="far fa-arrow-alt-circle-right"></i></button>
+                </div>
+
+
+
+
+
+
+</div>
+
+

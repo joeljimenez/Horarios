@@ -1,0 +1,84 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+*{
+  font-family:"Raleway", sans-serif;
+  margin: 0px;
+}
+
+
+.requerido{
+  color:rgba(240, 14, 14, 0.986);
+  font-size: 15px;
+}
+.requerido1{
+  color:rgba(255, 255, 255, 0.986);
+  font-size: 15px;
+}
+body{
+  background-image: url('assets/Imagenes/fondo.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 300%;
+  background-attachment:fixed;
+
+}
+
+
+.text{
+  color:#ffffff;
+  font-weight: bold;
+}
+
+
+.formu label {
+  font-weight: bold;
+  font-size: 15px;
+  color:rgb(255, 255, 255);
+}
+
+.img{
+  margin-top: -10px;
+  width:60%;
+}
+
+.texto{
+  color:rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 30px;
+  padding-top:10%;
+  text-align: center;
+}
+
+/* Animaciones */
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.hola{
+  margin-top: 10%;
+  size: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+

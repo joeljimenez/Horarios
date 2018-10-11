@@ -1,0 +1,287 @@
+
+<div class="container animated fadeIn caja">
+<div class="row">
+<div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+    <h2 class="titu">CONOCE MÁS SOBRE </h2>
+    <h1 class="titu1">NUESTRAS CARRERAS!</h1>
+</div>
+<div class="col-lg-4 col-md-2 col-sm-12 col-xs-12">
+<img class="innova" src="/assets/Imagenes/logo-video.png" alt="">
+<p class="innova1">
+  CREA - INNOVA - EMPRENDE..
+</p>
+
+</div>
+</div>
+
+<form [formGroup]="forma" class="formu "(ngSubmit)="GuardarDatos()" novalidate>
+
+    <div class="container">
+
+<div class="row ">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-sx-12">
+        <label class="select"> <span class="requerido" *ngIf="forma.controls['sede'].errors?.required" >*</span> Sede</label>
+        <select class="form-control"
+        [(ngModel)]="Formulario.sede"
+        (change)="select_sede()"
+        formControlName="sede">
+            <option value="">-- Seleccione la Sede --</option>
+            <option value="001">Sede Central</option>
+            <option value="002">Medicina</option>
+            <option value="003">Santiago</option>
+            <option value="004">Chitré</option>
+            <option value="005">David</option>
+            <option value="007">Penonomé</option>
+
+        </select>
+
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6 col-sx-12">
+        <label class="select">
+          <span class="requerido" *ngIf="forma.controls['facultad'].errors?.required">*</span>
+          Facultad
+        </label>
+        <select class="form-control"
+        [(ngModel)]="Formulario.facultad"
+        formControlName="facultad" required
+        (change)="select_carrera()">
+            <option value="">-- Seleccione la Facultad --</option>
+            <option *ngFor="let a of facultades" [value]="a.Id">{{a.nombre | corrector}}</option>
+
+        </select>
+        </div>
+</div>
+<br>
+<div class="row">
+
+    <div class="col-sm-12 col-md-6 col-lg-6 col-sx-12">
+        <label for="">
+
+            Licenciatura / Maestría
+          </label>
+        <select [(ngModel)]="id" (change)="escoger()" class="form-control" formControlName="id">
+            <option value="">--Selecionar--</option>
+          <option value="01">Licenciatura</option>
+          <option value="02">Maestría</option>
+        </select>
+    </div>
+
+
+<div class="col-sm-12 col-md-6 col-lg-6 col-sx-12">
+    <label for="">
+      <span class="requerido" *ngIf="forma.controls['carrera'].errors?.required">*</span>
+      Carreras
+    </label>
+    <select class="form-control"
+    formControlName="carrera"
+    (change)="select_carr()"
+    [(ngModel)]="ind" >
+        <option value="" [disabled]="Formulario.carrera.length>=1">-- Seleccione la Carrera --</option>
+        <option *ngFor="let a of carreras; let i= index;" [value]="i"  [disabled]="Formulario.carrera.length>=1"  >{{a.nombre | corrector}}</option>
+
+    </select>
+
+
+    <!--h5 *ngIf="Formulario.carrera.length<3">Carreras Inscriptas (<strong class="text-primary">{{Formulario.carrera.length}}</strong>)</h5-->
+  <h6 *ngIf="Formulario.carrera.length>=1" class="text-danger text-white">Solo Puede Escoger 1 Carreras </h6>
+
+</div>
+</div>
+
+<br>
+<table class="table" style="color: white" *ngIf="Formulario.carrera.length>0" >
+  <thead class="table-active">
+    <tr>
+       <th scope="col">codigo</th>
+      <th scope="col">Nombre de la Carrera</th>
+      <th scope="col">Eliminar </th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let item of Formulario.carrera; let i=index" >
+      <td>{{item.carrera}}</td>
+      <td>{{item.nombreCarrera | corrector}}</td>
+      <td><button class="btn btn-danger" type="button" (click)="Rest(i)"  ><i class="fas fa-minus"></i></button></td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="row">
+
+<div class="col-md-4 col-xs-12 col-lg-4">
+<label for="">
+  <span class="requerido" *ngIf="forma.controls['nombre'].errors?.required"  >* </span>
+   Nombre
+  </label>
+<input class="form-control" type="text" placeholder="Nombre"
+formControlName="nombre" required
+[(ngModel)]="Formulario.nombre">
+
+<br>
+</div>
+<div class="col-md-4 col-xs-12 col-lg-4">
+  <label for="">
+      <span *ngIf="forma.controls['apellido'].errors?.required" class="requerido">*</span>
+      Apellido Paterno
+  </label>
+  <input class="form-control" type="text" placeholder="Apellido_Paterno" formControlName="apellido" [(ngModel)]="Formulario.apellido1" required>
+
+  <br>
+</div>
+
+<div class="col-md-4 col-xs-12 col-lg-4">
+<label for="">
+ <span class="requerido" *ngIf="forma.controls['apellido2'].errors?.required">*</span>
+    Apellido Materno
+</label>
+<input class="form-control" type="text" placeholder="Apellido_materno" formControlName="apellido2" [(ngModel)]="Formulario.apellido2" required>
+</div>
+</div>
+
+
+<div class="row">
+
+
+<div class="col-md-4 col-xs-12 col-lg-4">
+    <label for="">
+        <span class="requerido" *ngIf="forma.controls['cedula'].errors?.required">*</span>
+  Cédula
+    </label>
+    <input class="form-control" type="text" placeholder="Cédula ó Pasaporte" formControlName="cedula" [(ngModel)]="Formulario.cedula" required>
+
+    <br>
+</div>
+<div class="col-md-4 col-xs-12 col-lg-4">
+    <label for="">
+        <span class="requerido" *ngIf="forma.controls['email'].errors?.required" >*</span>
+
+       Correo
+    </label>
+    <input class="form-control" type="email" placeholder="example@gmail.com" formControlName="email" [(ngModel)]="Formulario.email" required>
+
+    <div *ngIf="forma.controls['email'].errors?.pattern" >
+      <span class="requerido1">Correo Invalido</span>
+    </div>
+    <br>
+</div>
+<div class="col-md-4 col-xs-12 col-lg-4">
+        <label for="">
+            <span class="requerido" *ngIf="forma.controls['dirrecion'].errors?.required">*</span>
+          Dirección
+        </label>
+        <input class="form-control" type="text"    placeholder="Dirección" formControlName="dirrecion" [(ngModel)]="Formulario.direccion" required>
+
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-4 col-xs-12 col-lg-4">
+        <label for="">
+           Teléfono Residencia
+        </label>
+        <input class="form-control" type="text" placeholder="Teléfono Residencia" formControlName="telefono" [(ngModel)]="Formulario.telefono1">
+        <br>
+    </div>
+    <div class="col-md-4 col-xs-12 col-lg-4">
+            <label for="">
+                <span class="requerido" *ngIf="forma.controls['celular'].errors?.required">*</span>
+             Teléfono Personal
+            </label>
+            <input class="form-control" type="text" placeholder=" Teléfono Personal" formControlName="celular" [(ngModel)]="Formulario.telefono2" required>
+            <div  >
+            </div>
+            <br>
+        </div>
+                <div class="col-md-4 col-xs-12 col-lg-4">
+            <label for="">
+                <span class="requerido" *ngIf="forma.controls['provincia'].errors?.required">*</span>
+                 Provincia
+            </label>
+            <select class="form-control" formControlName="provincia" [(ngModel)]="Formulario.provincia" required>
+                <option value="">--Seleccione--</option>
+                <option *ngFor="let item of provincia"  [value]="item.id">{{item.nombre}}</option>
+          </select>
+
+
+        </div>
+</div>
+
+<div class="row">
+
+<div class="col-md-4 col-xs-12 col-lg-4">
+
+                <label for="">
+<span class="requerido" *ngIf="forma.controls['sexo'].errors?.required">*</span>Sexo
+                </label>
+                <select class="form-control" formControlName="sexo" [(ngModel)]="Formulario.sexo" required>
+                    <option value="">--Seleccione Sexo--</option>
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+
+                </select>
+
+                <br>
+            </div>
+        <div class="col-md-4 col-xs-12 col-lg-4">
+                <label for="">
+                    <span class="requerido" *ngIf="forma.controls['anno'].errors?.required">*</span>
+
+                  Año de Ingreso
+                </label>
+                <select class="form-control" type="number" placeholder="2018"
+                 maxlength="4" formControlName="anno"
+                 [(ngModel)]="Formulario.anio" required
+                 (change)="anno()"  >
+                  <option value=""[disabled]="habil" >--Selecione año--</option>
+                  <option value="2018"[disabled]="habil" >2018</option>
+                  <option value="2019"[disabled]="habil" >2019</option>
+                  <option value="2020"[disabled]="habil" >2020</option>
+                </select>
+
+                <br>
+            </div>
+
+            <div class="col-md-4 col-xs-12 col-lg-4">
+              <label for="">
+                  <span class="requerido" *ngIf="forma.controls['periodo'].errors?.required">*</span>
+
+                Periodo
+              </label>
+              <!--input class="form-control" type="number" placeholder="2018" maxlength="4" formControlName="anno" [(ngModel)]="Formulario.anio" required-->
+              <select class="form-control"    formControlName="periodo" [(ngModel)]="Formulario.periodo" (change)="Formato()" required >
+                <option value="">--Selecione Periodo--</option>
+                <option *ngFor="let item of Periodo"  [value]="item.id">{{item.nombre}}</option>
+              </select>
+
+              <br>
+          </div>
+  </div>
+  <div class="row text-center">
+<div class="col-lg-4 col-md-12 col-xs-12">
+    <h5 class="obli">Todos los campos con (<span class="requerido">*</span>) Son requeridos</h5>
+
+</div>
+<div class="col-lg-4 col-md-12">
+    <button class="blanco" type="submit" [disabled]="!forma.valid"  [hidden]="habilitar">
+        <i class="fa fa-check-circle"> </i>  Enviar Datos
+        </button>
+        <h4 class="text" [hidden]="!habilitar">
+          Enviando Solicitud....
+        </h4>
+
+      </div>
+
+<div class="col-lg-4 col-md-12 col-xs-12">
+    <img src="/assets/Imagenes/banner-latina.png" alt="" class="img">
+
+  </div>
+  </div>
+</div>
+  </form>
+</div>
+
+

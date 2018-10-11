@@ -1,0 +1,219 @@
+.titu{
+  color:rgb(253, 250, 38);
+  margin-top: 1%;
+  font-weight: bold;
+  font-size: 40px;
+  text-shadow:10px 2px 5px rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.obli{
+ color:white;
+ margin-top: -20px;
+}
+
+.titu1{
+  color:rgba(255, 251, 0, 0.918);
+  font-weight: bold;
+  font-size: 60px;
+  text-shadow:10px 2px 5px rgb(0, 0, 0);
+  border-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.blanco{
+  background-color: transparent;
+  padding:2%;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  font-weight: bold;
+}
+.blanco:hover{
+  background-color: white;
+  padding:4%;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.5s;
+  border-color: rgba(255, 255, 255, 0.568);
+
+}
+.innova{
+  margin-top: 15%;
+  color: white;
+  width:55%;
+  display: block;
+  margin-left:35%;
+  font-weight: bold;
+}
+.innova1{
+  margin-top: 20%;
+  color: white;
+  font-size: 20px;
+  display: none;
+  font-weight: bold;
+}
+@media only screen and (max-width: 1200px) {
+
+  .titu{
+    color:rgb(253, 250, 38);
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 25px;
+    text-shadow: 1px 5px 1px rgb(2, 2, 2);
+  }
+
+  .titu1{
+    color:rgb(253, 250, 38);
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: 3px 2px 5px rgb(2, 2, 2);
+  }
+@media only screen and (max-width: 992px) {
+  .innova{
+    margin-top: 80%;
+    color: white;
+    width:150px;
+    display: block;
+    margin-left:-90%;
+    font-weight: bold;
+  }
+
+
+  .titu{
+    color:rgb(253, 250, 38);
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 1px 5px 1px rgb(2, 2, 2);
+  }
+
+  .titu1{
+    color:rgb(253, 250, 38);
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: 3px 2px 5px rgb(2, 2, 2);
+  }
+
+@media only screen and (max-width: 800px) {
+  .img{
+    text-align: center center;
+    margin-left:0px;
+    margin-top: 0px;
+     width:50%;
+     margin-bottom: 5%;
+   }
+   .obli{
+    color:white;
+    margin-bottom: 10px;
+    margin-left:0px;
+    font-size:15px;
+   }
+  .titu{
+    color:rgb(253, 250, 38);
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 3px 2px 5px rgb(2, 2, 2);
+  }
+
+  .titu1{
+    color:rgb(253, 250, 38);
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: 3px 2px 5px rgb(2, 2, 2);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .titu{
+      color:rgb(253, 250, 38);
+      margin-top: 5%;
+      font-weight: bold;
+      font-size: 25px;
+      text-shadow: 3px 2px 5px rgb(2, 2, 2);
+    }
+
+    .titu1{
+      color:rgb(253, 250, 38);
+      font-weight: bold;
+      font-size: 30px;
+      text-shadow: 3px 2px 5px rgb(2, 2, 2);
+    }
+
+    .img{
+      text-align: center center;
+      margin-left:0px;
+      margin-top: 0px;
+       width:50%;
+       margin-bottom: 5%;
+     }
+     .obli{
+      color:white;
+      margin-top: 10px;
+      margin-left:0px;
+      font-size:15px;
+     }
+
+  }  @media only screen and (max-width: 768px) {
+    .innova{
+      margin-top: 80%;
+      color: white;
+      width:100%;
+      display: none;
+      font-weight: bold;
+    }
+    .innova1{
+      margin-top: 0%;
+      color: white;
+      font-size: 20px;
+      display: block;
+      font-weight: bold;
+    }
+    .img{
+      text-align: center center;
+      margin-left:0px;
+       width:50%;
+       margin-bottom: 5%;
+     }
+     .obli{
+      color:white;
+      margin-top: 10px;
+      margin-left:0px;
+      font-size:15px;
+      text-align: center;
+     }
+
+  @media only screen and (max-width: 420px) {
+    .titu{
+      color:rgb(253, 250, 38);
+      margin-top: 5%;
+      font-weight: bold;
+      font-size: 20px;
+      text-shadow: 3px 2px 5px rgb(2, 2, 2);
+    }
+
+    .titu1{
+      color:rgb(253, 250, 38);
+      font-weight: bold;
+      font-size: 25px;
+      text-shadow: 3px 2px 5px rgb(2, 2, 2);
+    }
+    .img{
+      text-align: center center;
+      margin-left:90px;
+      margin-top: 0px;
+       width:50%;
+       margin-bottom: 5%;
+     }
+     .obli{
+      color:white;
+      margin-top: 10px;
+      margin-left:0px;
+      font-size:15px;
+      text-align: center;
+     }
+
+  }
+}
+
+}
+}
+}

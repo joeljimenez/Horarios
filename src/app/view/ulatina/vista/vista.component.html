@@ -1,0 +1,58 @@
+<simple-notifications [options]="options"> </simple-notifications>
+<control-skin [estado]="flag_envio" [skin]="1"></control-skin>
+<br>
+<div class="container animated fadeIn text-white">
+
+  <div class="row">
+      <button class="btn btn-primary" (click)="retorno()" ng-show="registra">
+          <i class="fa fa-chevron-left"></i> Retornar
+      </button>
+      <div class="col col-sm-12 col-md-5 col-lg-5">
+          <label class="select"> Buscar Materia</label>
+          <input class="form-control" type="text"  placeholder="Nombre De Materia" [(ngModel)]="materia"  #buscarTexto>
+      </div>
+
+      <div class="col col-sm-12 col-md-5 col-lg-5">
+          <label class="select">Buscar Por Cuatrimestres</label>
+          <select class="form-control" [(ngModel)]="materiaE">
+              <!--(change)="buscar()"-->
+              <option value="">-- Seleccione --</option>
+              <option *ngFor="let b of horarios" value="{{b.nivel }}">{{b.nivel| deci}} - {{ b.modo | letra }} </option>
+          </select>
+      </div>
+  </div>
+
+  <h3 class="text-center">Horarios De Clases</h3>
+  <div *ngFor="let a of horarios | filter: materiaE " class="animated fadeIn">
+      <h4 class="text-center">{{a.nivel | deci }} {{ a.modo | letra }} </h4>
+      <div>
+          <div *ngFor="let b of a.materias | filter: materia">
+
+              <span class="badge badge-secondary"> {{b.cod_materia}} {{b.materia | corrector}}</span>
+              <table class="table table-striped table-hover table-sm" *ngFor="let c of b.grupos">
+                  <thead class="thead-light">
+                      <tr>
+                          <th scope="col">Grupo</th>
+                          <th scope="col">Cupos</th>
+                          <th scope="col">Profesor</th>
+                          <th scope="col">Día</th>
+                          <th scope="col">Horario</th>
+                          <th scope="col">Salón</th>
+                      </tr>
+                      <tr *ngFor="let d of c.horarios">
+                          <th style="width: 10%">{{c.grupo}}</th>
+                          <th style="width: 10%">{{c.cupos - c.matriculados}}</th>
+                          <th style="width: 40%">{{c.profesor | corrector}}</th>
+                          <td style="width: 10%">{{d.dia}}</td>
+                          <td colspan="2" style="width: 30%">{{d.hinicio | hora}} / {{d.hfin | hora }} {{d.salon}}</td>
+                      </tr>
+                  </thead>
+
+
+              </table>
+
+          </div>
+      </div>
+
+  </div>
+</div>
